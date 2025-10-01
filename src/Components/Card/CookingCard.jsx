@@ -1,10 +1,10 @@
-const CookingCard = ({order}) => {
+const CookingCard = ({ order, handleCookedOrder }) => {
   // Mock data
-//   const order = {
-//     order_title: "Pasta Alfredo",
-//     quantity: 2,
-//     special_instruction: "Extra cheese, no garlic",
-//   };
+  //   const order = {
+  //     order_title: "Pasta Alfredo",
+  //     quantity: 2,
+  //     special_instruction: "Extra cheese, no garlic",
+  //   };
 
   return (
     <div
@@ -29,7 +29,7 @@ const CookingCard = ({order}) => {
       </p>
 
       {/* Static Button */}
-      <button className="px-6 mt-3 py-1 shadow text-sm hover:bg-black hover:text-white bg-white cursor-pointer rounded-xl">
+      <button onClick={()=>handleCookedOrder(order)} className="px-6 mt-3 py-1 shadow text-sm hover:bg-black hover:text-white bg-white cursor-pointer rounded-xl">
         Cooked?
       </button>
     </div>
