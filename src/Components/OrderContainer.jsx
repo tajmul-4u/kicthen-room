@@ -3,6 +3,7 @@ import States from "./States";
 import OrderCard from "./Card/OrderCard";
 import CookingCard from "./Card/CookingCard";
 import ReadyCard from "./ReadyCard";
+import { toast } from "react-toastify";
 
 const OrderContainer = ({ orderPromise }) => {
   const orders = use(orderPromise);
@@ -15,8 +16,9 @@ const OrderContainer = ({ orderPromise }) => {
     // age check kor  cooking e order ase kina
     const isExist=cookingItems.find((item)=>item.id==order.id);
     // console.log(isExist)
+    // toast("Order called")
     if(isExist){
-        alert('Allready Cooking')
+        toast.error(' Order already processing')
         return;
     }
     //Cooking items rr vitor cliclk kore order k dhukabo
@@ -25,7 +27,8 @@ const OrderContainer = ({ orderPromise }) => {
   };
   const handleCookedOrder=(order)=>{
     // console.log(order)
-    // ready cooking er vitor dhukate hobe
+    // ready cooking er vitor dhukate hob
+    order.cookedAt=new Date().toLocaleTimeString();
     const readyCookingItems=[...orderCookedItems,order]
     setOrderCookedItems(readyCookingItems)
     // remove the cooking items

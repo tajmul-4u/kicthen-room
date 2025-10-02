@@ -3,6 +3,7 @@ import "./App.css";
 import Heading from "./Components/Heading";
 import Navbar from "./Components/Navbar";
 import OrderContainer from "./Components/OrderContainer";
+import { ToastContainer } from "react-toastify";
 
 const loadOder=()=>fetch('/orders.json').then(res=>res.json())
 
@@ -22,6 +23,7 @@ function App() {
           <OrderContainer orderPromise={orderPromise}></OrderContainer>
         </Suspense>
       </section>
+      <ToastContainer></ToastContainer>
     </>
   );
 }
